@@ -2,7 +2,7 @@ import React from "react";
 
 function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }) {
   return (
-    <div>
+    <div id={`step${step}`}>
       {/* ---- Step 1 ---- */}
       {step === 1 && (
         <>
@@ -77,17 +77,9 @@ function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }
 
       {/* ---- Navigation Buttons ---- */}
       <div style={{ marginTop: "20px" }}>
-        {step > 1 && (
-          <button onClick={prevStep}>Previous</button>
-        )}
-
-        {step < 3 && (
-          <button onClick={nextStep}>Next</button>
-        )}
-
-        {step === 3 && (
-          <button onClick={handleSubmit}>Submit</button>
-        )}
+        {step > 1 && <button id="prevBtn" onClick={prevStep}>Previous</button>}
+        {step < 3 && <button id="nextBtn" onClick={nextStep}>Next</button>}
+        {step === 3 && <button id="submitBtn" onClick={handleSubmit}>Submit</button>}
       </div>
     </div>
   );
