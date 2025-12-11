@@ -81,19 +81,19 @@ function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }
       {/* ---- Navigation Buttons ---- */}
       <div style={{ marginTop: "20px" }}>
         {step > 1 && (
-          <button id="previous" onClick={prevStep}>
+          <button id="previous" type="button" onClick={prevStep}>
             Previous
           </button>
         )}
 
         {step < 3 && (
-          <button id="next" onClick={nextStep}>
+          <button id="next" type="button" onClick={nextStep}>
             Next
           </button>
         )}
 
         {step === 3 && (
-          <button id="submit" onClick={handleSubmit}>
+          <button id="submit" type="button" onClick={handleSubmit}>
             Submit
           </button>
         )}

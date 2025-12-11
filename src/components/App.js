@@ -19,11 +19,11 @@ function App() {
   };
 
   const nextStep = () => {
-    if (currentStep < 3) setCurrentStep(currentStep + 1);
+    setCurrentStep((prev) => (prev < 3 ? prev + 1 : prev));
   };
 
   const prevStep = () => {
-    if (currentStep > 1) setCurrentStep(currentStep - 1);
+    setCurrentStep((prev) => (prev > 1 ? prev - 1 : prev));
   };
 
   const handleSubmit = () => {
