@@ -7,6 +7,7 @@ function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }
       {step === 1 && (
         <>
           <h2>Step 1: User Information</h2>
+
           <div>
             <label>First Name: </label>
             <input
@@ -31,6 +32,7 @@ function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }
       {step === 2 && (
         <>
           <h2>Step 2: Car Details</h2>
+
           <div>
             <label>Car Model: </label>
             <input
@@ -55,6 +57,7 @@ function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }
       {step === 3 && (
         <>
           <h2>Step 3: Payment Info</h2>
+
           <div>
             <label>Card Info: </label>
             <input
@@ -77,9 +80,23 @@ function Step({ step, formData, handleChange, nextStep, prevStep, handleSubmit }
 
       {/* ---- Navigation Buttons ---- */}
       <div style={{ marginTop: "20px" }}>
-        {step > 1 && <button id="previous" onClick={prevStep}>Previous</button>}
-        {step < 3 && <button id="next" onClick={nextStep}>Next</button>}
-        {step === 3 && <button id="submit" onClick={handleSubmit}>Submit</button>}
+        {step > 1 && (
+          <button id="previous" onClick={prevStep}>
+            Previous
+          </button>
+        )}
+
+        {step < 3 && (
+          <button id="next" onClick={nextStep}>
+            Next
+          </button>
+        )}
+
+        {step === 3 && (
+          <button id="submit" onClick={handleSubmit}>
+            Submit
+          </button>
+        )}
       </div>
     </div>
   );
