@@ -19,11 +19,11 @@ function App() {
   };
 
   const nextStep = () => {
-    setCurrentStep((prev) => (prev < 3 ? prev + 1 : prev));
+    setCurrentStep((prev) => Math.min(prev + 1, 3));
   };
 
   const prevStep = () => {
-    setCurrentStep((prev) => (prev > 1 ? prev - 1 : prev));
+    setCurrentStep((prev) => Math.max(prev - 1, 1));
   };
 
   const handleSubmit = () => {
