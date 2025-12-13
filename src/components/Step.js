@@ -1,81 +1,86 @@
 import React from "react";
 
-function Step({ step, formData, handleChange }) {
+const Step = ({ step, formData, nextStep, prevStep, onChange, onSubmit }) => {
   return (
-    <div id={`step${step}`}>
-      {/* Step 1: User Info */}
-      {step === 1 && (
-        <>
-          <h2>Step 1: User Information</h2>
-          <div>
-            <label htmlFor="first_name">First Name: </label>
-            <input
-              id="first_name"
-              value={formData.first_name}
-              onChange={handleChange}
-            />
-          </div>
+    <div className="form-card">
 
-          <div>
-            <label htmlFor="last_name">Last Name: </label>
-            <input
-              id="last_name"
-              value={formData.last_name}
-              onChange={handleChange}
-            />
-          </div>
-        </>
-      )}
+      {/* STEP 1 */}
+      <form id="step1" style={{ display: step === 1 ? "block" : "none" }}>
+        <h3>Customer Details</h3>
 
-      {/* Step 2: Car Details */}
-      {step === 2 && (
-        <>
-          <h2>Step 2: Car Details</h2>
-          <div>
-            <label htmlFor="model">Car Model: </label>
-            <input
-              id="model"
-              value={formData.model}
-              onChange={handleChange}
-            />
-          </div>
+        <label htmlFor="first_name">First Name</label>
+        <input
+          id="first_name"
+          value={formData.first_name}
+          onChange={onChange}
+        />
 
-          <div>
-            <label htmlFor="car_price">Car Price: </label>
-            <input
-              id="car_price"
-              value={formData.car_price}
-              onChange={handleChange}
-            />
-          </div>
-        </>
-      )}
+        <label htmlFor="last_name">Last Name</label>
+        <input
+          id="last_name"
+          value={formData.last_name}
+          onChange={onChange}
+        />
 
-      {/* Step 3: Payment Info */}
-      {step === 3 && (
-        <>
-          <h2>Step 3: Payment Info</h2>
-          <div>
-            <label htmlFor="card_info">Card Info: </label>
-            <input
-              id="card_info"
-              value={formData.card_info}
-              onChange={handleChange}
-            />
-          </div>
+        <button type="button" onClick={nextStep}>
+          Next
+        </button>
+      </form>
 
-          <div>
-            <label htmlFor="expiry_date">Expiry Date: </label>
-            <input
-              id="expiry_date"
-              value={formData.expiry_date}
-              onChange={handleChange}
-            />
-          </div>
-        </>
-      )}
+      {/* STEP 2 */}
+      <form id="step2" style={{ display: step === 2 ? "block" : "none" }}>
+        <h3>Car Details</h3>
+
+        <label htmlFor="model">Car Model</label>
+        <input
+          id="model"
+          value={formData.model}
+          onChange={onChange}
+        />
+
+        <label htmlFor="car_price">Car Price</label>
+        <input
+          id="car_price"
+          value={formData.car_price}
+          onChange={onChange}
+        />
+
+        <button type="button" onClick={prevStep}>
+          Previous
+        </button>
+        <button type="button" onClick={nextStep}>
+          Next
+        </button>
+      </form>
+
+      {/* STEP 3 */}
+      <form id="step3" style={{ display: step === 3 ? "block" : "none" }}>
+        <h3>Payment Details</h3>
+
+        <label htmlFor="card_info">Card Information</label>
+        <input
+          id="card_info"
+          value={formData.card_info}
+          onChange={onChange}
+        />
+
+        <label htmlFor="expiry_date">Expiry Date</label>
+        <input
+          id="expiry_date"
+          value={formData.expiry_date}
+          onChange={onChange}
+        />
+
+        <button type="button" onClick={prevStep}>
+          Previous
+        </button>
+        <button type="button" onClick={onSubmit}>
+          Submit
+        </button>
+      </form>
+
     </div>
   );
-}
+};
 
 export default Step;
